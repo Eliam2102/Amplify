@@ -1,0 +1,131 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    // REMIXICONS
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="")
+    // CSS
+    link(rel="stylesheet", type="text/css", href="css/styles.css")
+    link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
+    title Amplify
+  body
+    // Sidebar bg
+    img.bg-image(src="/img/Podcast.svg")
+    // HEADER
+    header.header
+      .header__container.container
+        .header__toggle#header-toggle
+          i.ri-menu-line
+        a.header__logo(href="#")
+          img(src="/img/Apple_Music_logo.svg" alt="")
+    // SIDEBAR
+    .sidebar#sidebar
+      nav.sidebar__container
+        .sidebar__logo
+          img.sidebar__logo-text(src="/img/Apple_Music_logo.svg" alt="")
+        .sidebar__content
+          .sidebar__list
+            a.sidebar__link.active-link(href="#")
+              i.ri-home-5-line
+              span.sidebar__link-name Home
+              span.sidebar__link-floating Home
+            
+            a.sidebar__link(href="#")
+              i.ri-compass-3-line
+              span.sidebar__link-name Explore
+              span.sidebar__link-floating Explore
+            
+            a.sidebar__link(href="#")
+              i.ri-video-line
+              span.sidebar__link-name Shorts
+              span.sidebar__link-floating Shorts
+            
+            a.sidebar__link(href="#")
+              i.ri-add-box-line
+              span.sidebar__link-name Subscription
+              span.sidebar__link-floating Subscription
+          
+          h3.sidebar__title
+            span Library
+          
+          .sidebar__list
+            a.sidebar__link(href="#")
+              i.ri-history-line
+              span.sidebar__link-name History
+              span.sidebar__link-floating History
+            
+            a.sidebar__link(href="#")
+              i.ri-time-line
+              span.sidebar__link-name Watch Later
+              span.sidebar__link-floating Watch Later
+            
+            a.sidebar__link(href="#")
+              i.ri-play-circle-line
+              span.sidebar__link-name Playlists
+              span.sidebar__link-floating Playlists
+            
+            a.sidebar__link(href="#")
+              i.ri-heart-3-line
+              span.sidebar__link-name Liked Videos
+              span.sidebar__link-floating Liked Videos
+          
+          h3.sidebar__title
+            span General
+          
+          .sidebar__list
+            a.sidebar__link(href="#")
+              i.ri-notification-2-line
+              span.sidebar__link-name Notifications
+              span.sidebar__link-floating Notifications
+            
+            a.sidebar__link(href="#")
+              i.ri-settings-3-line
+              span.sidebar__link-name Settings
+              span.sidebar__link-floating Settings
+            
+            a.sidebar__link(href="#")
+              i.ri-logout-box-r-line
+              span.sidebar__link-name Logout
+              span.sidebar__link-floating Logout
+        
+        .sidebar__account
+          img.sidebar__perfil(src="/img/avatar.svg")
+          
+          .sidebar__names
+            h3.sidebar__name Prueba
+            span.sidebar__email prueba123umsa@gmail.com
+          
+          i.ri-arrow-right-s-line
+    // MAIN
+    main.main.container#main
+    block content
+
+    
+    // MAIN JS
+    script.
+      const showSidebar = (toggleId, sidebarId, mainId) =>{
+         const toggle = document.getElementById(toggleId),
+         sidebar = document.getElementById(sidebarId),
+         main = document.getElementById(mainId)
+      
+         if(toggle && sidebar && main){
+             toggle.addEventListener('click', ()=>{
+                 /* Show sidebar */
+                 sidebar.classList.toggle('show-sidebar')
+                 /* Add padding main */
+                 main.classList.toggle('main-pd')
+             })
+         }
+      }
+      showSidebar('header-toggle','sidebar', 'main')
+      
+      /*=============== LINK ACTIVE ===============*/
+      const sidebarLink = document.querySelectorAll('.sidebar__link')
+      
+      function linkColor(){
+          sidebarLink.forEach(l => l.classList.remove('active-link'))
+          this.classList.add('active-link')
+      }
+      
+      sidebarLink.forEach(l => l.addEventListener('click', linkColor))

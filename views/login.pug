@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title Iniciar sesión
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", type="text/css", href="css/styles.css")
+    link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
+
+  body.login
+    .container-form.register
+      .information
+        .info-childs
+              h2 ¡¡Bienvenido nuevamente!!
+              p ¿Aún no tienes una cuenta?
+              input(type="button" value="Registrarse" id="sign-up")
+      div.form-information
+          div.form-information-childs
+              h2 Iniciar Sesión
+              p Inicia sesión con tu cuenta
+              form.form.form-login(novalidate)
+                  div
+                      label
+                          i.bx.bx-envelope
+                          input(type="email" placeholder="Correo Electronico" name="userPassword")
+                  div
+                      label
+                          i.bx.bx-lock-alt
+                          input(type="password" placeholder="Contraseña" name="userPassword")
+                  input(type="submit" value="Iniciar Sesión")
+                  div.alerta-error Todos los campos son obligatorios
+                  div.alerta-exito Te registraste correctamente

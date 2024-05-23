@@ -1,0 +1,40 @@
+{
+  "name": "amplify",
+  "version": "1.0.0",
+  "description": "Amplify es una innovadora plataforma de streaming de música diseñada para ofrecer una experiencia auditiva sin igual. Al igual que Spotify y Apple Music, Melodify proporciona una vasta biblioteca de canciones de diversos géneros y artistas de todo el mundo.",
+  "main": "server.js",
+  "scripts": {
+    "sass": "sass styles/sass/styles.sass:public/css/styles.css",
+    "sass-watch": "sass --watch styles/sass:public/css",
+    "start": "npm run sass && nodemon server.js"
+  },
+  "author": "Eliam Jesus Cauich Villanueva",
+  "license": "ISC",
+  "dependencies": {
+    "@remixicon/vue": "^4.2.0",
+    "bcrypt": "^5.1.1",
+    "connect": "^3.7.0",
+    "connect-flash": "^0.1.1",
+    "connect-sqlite3": "^0.9.15",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.0.1",
+    "jquery": "^3.7.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.7",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "pug": "^3.0.2",
+    "remixicon": "^4.2.0",
+    "sass": "^1.75.0",
+    "session": "^0.1.0",
+    "vigenere": "^1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

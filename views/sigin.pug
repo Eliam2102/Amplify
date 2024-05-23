@@ -1,0 +1,39 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=0.98")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
+    title Regístrate
+    // Google Fonts
+    link(href="https://fonts.googleapis.com/css?family=Lato&display=swap", rel="stylesheet")
+    // Estilos CSS
+    link(rel="stylesheet", href="css/styles.css")
+  body.register
+  .container-form.register
+    .information
+      .info-childs
+        h2 - Bienvenido  -
+        p ¿Ya tienes una cuenta?
+        input#sign-in(type="button" value="Iniciar Sesión")
+    .form-information
+      .form-information-childs
+        h2 Crear una Cuenta
+        p Usa tu email para registrarte
+        form.form.form-register(novalidate)
+          div
+            label
+              i.bx.bx-user
+              input(type="text" placeholder="Nombre Usuario" name="userName")
+          div
+            label
+              i.bx.bx-envelope
+              input(type="email" placeholder="Correo Electronico" name="userEmail")
+          div
+            label
+              i.bx.bx-lock-alt
+              input(type="password" placeholder="Contraseña" name="userPassword")
+          input(type="submit" value="Registrarse")
+          .alerta-error Todos los campos son obligatorios
+          .alerta-exito Te registraste correctamente
