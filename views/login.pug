@@ -3,7 +3,7 @@ html
   head
     title Iniciar sesión
     meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet", type="text/css", href="css/styles.css")
     link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
 
@@ -11,22 +11,26 @@ html
     .container-form.register
       .information
         .info-childs
-              h2 ¡¡Bienvenido nuevamente!!
-              p ¿Aún no tienes una cuenta?
-              input(type="button" value="Registrarse" id="sign-up")
-      div.form-information
-          div.form-information-childs
-              h2 Iniciar Sesión
-              p Inicia sesión con tu cuenta
-              form.form.form-login(novalidate)
-                  div
-                      label
-                          i.bx.bx-envelope
-                          input(type="email" placeholder="Correo Electronico" name="userPassword")
-                  div
-                      label
-                          i.bx.bx-lock-alt
-                          input(type="password" placeholder="Contraseña" name="userPassword")
-                  input(type="submit" value="Iniciar Sesión")
-                  div.alerta-error Todos los campos son obligatorios
-                  div.alerta-exito Te registraste correctamente
+          h2 ¡¡Bienvenido nuevamente!!
+          p ¿Aún no tienes una cuenta?
+          input(type="button" value="Registrarse" id="sign-up")
+      .form-information
+        .form-information-childs
+          h2 Iniciar Sesión
+          p Inicia sesión con tu cuenta
+          form.form.form-login(novalidate)
+            div
+              label
+                i.bx.bx-envelope
+                input(type="email" placeholder="Correo Electrónico" name="userEmail")
+            div
+              label
+                i.bx.bx-lock-alt
+                input(type="password" placeholder="Contraseña" name="userPassword")
+            input(type="submit" value="Iniciar Sesión")
+            .alerta-error Todos los campos son obligatorios
+            .alerta-exito Te registraste correctamente
+  script.
+    document.getElementById('sign-up').addEventListener('click', function() {
+      window.location.href = '/sigin';
+    });

@@ -1,0 +1,156 @@
+extends layout
+
+block content
+    head
+        link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="css/index.css")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Amplify
+        // Fonts
+        link(href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap", rel="stylesheet")
+        // CSS Estilos
+        link(rel="stylesheet", href="css/albumes.css")
+    body
+        p  
+            div.carousel
+                div.carousel__body
+                    div.carousel__prev
+                        i.far.fa-angle-left
+                    div.carousel__next
+                        i.far.fa-angle-right
+                    div.carousel__slider
+                        //- Cada slide se agrega manualmente
+                        a.carousel__slider__item(href="/ruta-slide-1")
+                            div.item__3d-frame
+                                div.item__3d-frame__box.item__3d-frame__box--front
+                                    img(src="/img/all out.jpg", alt="Image 1")
+                                div.item__3d-frame__box.item__3d-frame__box--left
+                                div.item__3d-frame__box.item__3d-frame__box--right
+                        a.carousel__slider__item(href="/ruta-slide-2")
+                            div.item__3d-frame
+                                div.item__3d-frame__box.item__3d-frame__box--front
+                                    img(src="/img/chill hits.jpg", alt="Image 2")
+                                div.item__3d-frame__box.item__3d-frame__box--left
+                                div.item__3d-frame__box.item__3d-frame__box--right
+                        a.carousel__slider__item(href="/ruta-slide-3")
+                            div.item__3d-frame
+                                div.item__3d-frame__box.item__3d-frame__box--front
+                                    img(src="/img/mega hit mix.jpg", alt="Image 3")
+                                div.item__3d-frame__box.item__3d-frame__box--left
+                                div.item__3d-frame__box.item__3d-frame__box--right
+                        a.carousel__slider__item(href="/ruta-slide-4")
+                            div.item__3d-frame
+                                div.item__3d-frame__box.item__3d-frame__box--front
+                                    img(src="/img/rap caviar.jpg", alt="Image 4")
+                                div.item__3d-frame__box.item__3d-frame__box--left
+                                div.item__3d-frame__box.item__3d-frame__box--right
+                        a.carousel__slider__item(href="/ruta-slide-5")
+                            div.item__3d-frame
+                                div.item__3d-frame__box.item__3d-frame__box--front
+                                    img(src="/img/rock classics.jpg", alt="Image 5")
+                                div.item__3d-frame__box.item__3d-frame__box--left
+                                div.item__3d-frame__box.item__3d-frame__box--right
+                        a.carousel__slider__item(href="/ruta-slide-6")
+                            div.item__3d-frame
+                                div.item__3d-frame__box.item__3d-frame__box--front
+                                    img(src="/img/today top hits.jpg", alt="Image 6")
+                                div.item__3d-frame__box.item__3d-frame__box--left
+                                div.item__3d-frame__box.item__3d-frame__box--right
+                        a.carousel__slider__item(href="/ruta-slide-7")
+                            div.item__3d-frame
+                                div.item__3d-frame__box.item__3d-frame__box--front
+                                    img(src="/img/viva latino.jpg", alt="Image 7")
+                                div.item__3d-frame__box.item__3d-frame__box--left
+                                div.item__3d-frame__box.item__3d-frame__box--right
+            div.carousel__controls
+                div.carousel__prev
+                    i.far.fa-angle-left
+                div.carousel__next
+                    i.far.fa-angle-right
+
+    script.
+        (function() {
+          "use strict";
+
+          var carousel = document.getElementsByClassName('carousel')[0],
+              slider = carousel.getElementsByClassName('carousel__slider')[0],
+              items = carousel.getElementsByClassName('carousel__slider__item'),
+              prevBtn = carousel.getElementsByClassName('carousel__prev')[0],
+              nextBtn = carousel.getElementsByClassName('carousel__next')[0];
+          
+          var width, height, totalWidth, margin = 20,
+              currIndex = 0,
+              interval, intervalTime = 4000;
+          
+          function init() {
+              resize();
+              move(Math.floor(items.length / 2));
+              bindEvents();
+            
+              timer();
+          }
+          
+          function resize() {
+              width = Math.max(window.innerWidth * .25, 275),
+              height = window.innerHeight * .5,
+              totalWidth = width * items.length;
+            
+              slider.style.width = totalWidth + "px";
+            
+              for(var i = 0; i < items.length; i++) {
+                  let item = items[i];
+                  item.style.width = (width - (margin * 2)) + "px";
+                  item.style.height = height + "px";
+              }
+          }
+          
+          function move(index) {
+              if(index < 1) index = items.length;
+              if(index > items.length) index = 1;
+              currIndex = index;
+              
+              //- Quita la clase 'carousel__slider__item--active' de todos los elementos
+              for(var i = 0; i < items.length; i++) {
+                  items[i].classList.remove('carousel__slider__item--active');
+              }
+              
+              //- Añade la clase 'carousel__slider__item--active' al slide correspondiente
+              items[index - 1].classList.add('carousel__slider__item--active');
+            
+              slider.style.transform = "translate3d(" + ((index * -width) + (width / 2) + window.innerWidth / 2) + "px, 0, 0)";
+          }
+          
+          function timer() {
+              clearInterval(interval);    
+              interval = setInterval(() => {
+                move(++currIndex);
+              }, intervalTime);    
+          }
+          
+          function prev() {
+            move(--currIndex);
+            timer();
+          }
+          
+          function next() {
+            move(++currIndex);    
+            timer();
+          }
+          
+          //- Función para manejar el clic en los slides
+          function handleItemClick(index) {
+              move(index);
+              timer();
+          }
+          
+          function bindEvents() {
+              window.onresize = resize;
+              prevBtn.addEventListener('click', () => { prev(); });
+              nextBtn.addEventListener('click', () => { next(); });    
+          }
+
+          init();
+          
+        })();

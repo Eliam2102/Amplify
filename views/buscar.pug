@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css", rel="stylesheet")
+        link(rel="stylesheet", href="/css/buscar.css")
+        title BooklyMange
+    body
+        div.general-container
+            div.information-search
+                h1 Te damos las bienvenida a Amplify
+                form(action='/buscar-cancion', method='GET', class='search-bar')
+                    input(type='text', name='q', class='inputSearch', placeholder='Buscar canción')
+                    button(type='submit', class='buttonSearch')
+                        i(class="ri-search-eye-line")

@@ -5,8 +5,12 @@
   "main": "server.js",
   "scripts": {
     "sass": "sass styles/sass/styles.sass:public/css/styles.css",
+    "index.sass": "sass styles/sass/index.sass:public/css/index.css",
+    "albumes.sass": "sass styles/sass/albumes.sass:public/css/albumes.css",
+    "buscar.sass": "sass styles/sass/buscar.sass:public/css/buscar.css",
+    "sass-layout": "sass styles/sass/layout.sass:public/css/layout.css",
     "sass-watch": "sass --watch styles/sass:public/css",
-    "start": "npm run sass && nodemon server.js"
+    "start": "npm run sass && npm run sass-layout && npm run index.sass && npm run albumes.sass && npm run buscar.sass && nodemon server.js"
   },
   "author": "Eliam Jesus Cauich Villanueva",
   "license": "ISC",

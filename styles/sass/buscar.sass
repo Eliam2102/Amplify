@@ -1,0 +1,42 @@
+body
+    margin: 2rem
+    height: 80vh /* Ajusta la altura como prefieras */
+    font-family: 'Poppins', sans-serif
+    background-image: url("/img/Search.svg")
+
+
+
+.general-container
+    margin: 3rem auto /* Centra horizontalmente */
+    height: 100px /* Ajusta la altura como prefieras */
+    text-align: center
+
+.search-bar
+    border: 2px solid #000000 /* Añade grosor al borde */
+    padding: 1rem 2rem /* Añade espaciado interno */
+    width: 80% /* Ajusta el ancho como prefieras */
+    max-width: 600px /* Establece un ancho máximo */
+    margin: 2rem auto /* Centra horizontalmente */
+
+    .inputSearch
+        border-radius: 1.5rem /* Redondea las esquinas */
+        border: 2px solid #151515 /* Ajusta el grosor y color del borde */
+        width: 70% /* Ajusta el ancho como prefieras */
+        height: 3rem /* Ajusta la altura como prefieras */
+        padding: 0.5rem 1rem /* Añade espaciado interno */
+        margin-right: 1rem /* Ajusta el margen derecho */
+
+        &::placeholder /* Selecciona el placeholder */
+            margin-left: 0.5rem /* Ajusta el margen izquierdo */
+
+    .buttonSearch
+        width: 25% /* Ajusta el ancho como prefieras */
+        height: 3rem /* Ajusta la altura como prefieras */
+        font-size: 1.2rem /* Ajusta el tamaño de la fuente como prefieras */
+        background-color: #fff
+        border: none
+        cursor: pointer
+        transition: background-color 0.3s /* Agrega transición para el cambio de color */
+
+        &:hover /* Establece el estilo al pasar el mouse */
+            background-color: #b8c1ec /* Cambia el color de fondo al pasar el mouse */

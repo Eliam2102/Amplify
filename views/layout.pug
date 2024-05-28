@@ -6,126 +6,157 @@ html(lang="en")
     // REMIXICONS
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="")
     // CSS
-    link(rel="stylesheet", type="text/css", href="css/styles.css")
+    link(rel="stylesheet", type="text/css", href="css/layout.css")
     link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
     title Amplify
   body
     // Sidebar bg
-    img.bg-image(src="/img/Podcast.svg")
-    // HEADER
+    img.bg-image(src="assets/img/sidebar-bg.jpg", alt="sidebar img")
+
+    //=============== HEADER ===============
     header.header
       .header__container.container
         .header__toggle#header-toggle
           i.ri-menu-line
-        a.header__logo(href="#")
-          img(src="/img/Apple_Music_logo.svg" alt="")
-    // SIDEBAR
+        a.header__logo(href="/")
+          img(src="/img/Apple_Music_logo.svg", alt="")
+
+
+    //=============== SIDEBAR ===============
     .sidebar#sidebar
       nav.sidebar__container
         .sidebar__logo
-          img.sidebar__logo-text(src="/img/Apple_Music_logo.svg" alt="")
+          img.sidebar__logo-text(src="/img/Apple_Music_logo.svg", alt="")
+
         .sidebar__content
           .sidebar__list
-            a.sidebar__link.active-link(href="#")
+            a.sidebar__link.active-link(href="/")
               i.ri-home-5-line
-              span.sidebar__link-name Home
-              span.sidebar__link-floating Home
-            
-            a.sidebar__link(href="#")
-              i.ri-compass-3-line
-              span.sidebar__link-name Explore
-              span.sidebar__link-floating Explore
-            
+              span.sidebar__link-name Inicio
+              span.sidebar__link-floating Inicio
+
+            a.sidebar__link(href="/albumes")
+              i.ri-play-list-line
+              span.sidebar__link-name Mis playlists
+              span.sidebar__link-floating Mis platlists
+
             a.sidebar__link(href="#")
               i.ri-video-line
-              span.sidebar__link-name Shorts
-              span.sidebar__link-floating Shorts
-            
-            a.sidebar__link(href="#")
-              i.ri-add-box-line
-              span.sidebar__link-name Subscription
-              span.sidebar__link-floating Subscription
-          
+              span.sidebar__link-name Mi música
+              span.sidebar__link-floating Mi música
+
+            a.sidebar__link(href="/buscar")
+              i.ri-search-line
+              span.sidebar__link-name Buscar
+              span.sidebar__link-floating Buscar
+
           h3.sidebar__title
             span Library
-          
+
           .sidebar__list
             a.sidebar__link(href="#")
               i.ri-history-line
-              span.sidebar__link-name History
-              span.sidebar__link-floating History
-            
+              span.sidebar__link-name Historial
+              span.sidebar__link-floating Historial
+
             a.sidebar__link(href="#")
               i.ri-time-line
-              span.sidebar__link-name Watch Later
-              span.sidebar__link-floating Watch Later
-            
+              span.sidebar__link-name Escuchar más tarde
+              span.sidebar__link-floating Escuchar más tarde
+
             a.sidebar__link(href="#")
               i.ri-play-circle-line
               span.sidebar__link-name Playlists
               span.sidebar__link-floating Playlists
-            
+
             a.sidebar__link(href="#")
               i.ri-heart-3-line
-              span.sidebar__link-name Liked Videos
-              span.sidebar__link-floating Liked Videos
-          
+              span.sidebar__link-name Favoritas
+              span.sidebar__link-floating Favoritas
+
           h3.sidebar__title
             span General
-          
+
           .sidebar__list
             a.sidebar__link(href="#")
-              i.ri-notification-2-line
-              span.sidebar__link-name Notifications
-              span.sidebar__link-floating Notifications
-            
-            a.sidebar__link(href="#")
               i.ri-settings-3-line
-              span.sidebar__link-name Settings
-              span.sidebar__link-floating Settings
-            
+              span.sidebar__link-name Configuración
+              span.sidebar__link-floating Configuración
+
             a.sidebar__link(href="#")
               i.ri-logout-box-r-line
               span.sidebar__link-name Logout
               span.sidebar__link-floating Logout
-        
-        .sidebar__account
-          img.sidebar__perfil(src="/img/avatar.svg")
-          
-          .sidebar__names
-            h3.sidebar__name Prueba
-            span.sidebar__email prueba123umsa@gmail.com
-          
-          i.ri-arrow-right-s-line
-    // MAIN
-    main.main.container#main
-    block content
+            
+            a.sidebar__link(href="#", id="mode-toggle-button")
+              i#mode-icon.ri-moon-line
+              span.sidebar__link-name#mode-text DarkMode
+              span.sidebar__link-floating#mode-text-floating DarkMode
 
-    
-    // MAIN JS
+
+        .sidebar__account
+          img.sidebar__perfil(src="/img/avatar.svg", alt="sidebar image")
+          .sidebar__names
+            h3.sidebar__name Will Lens
+            span.sidebar__email willens@email.com
+          i.ri-arrow-right-s-line
+
+    main.main.container#main
+        block content
+
     script.
-      const showSidebar = (toggleId, sidebarId, mainId) =>{
-         const toggle = document.getElementById(toggleId),
-         sidebar = document.getElementById(sidebarId),
-         main = document.getElementById(mainId)
-      
-         if(toggle && sidebar && main){
-             toggle.addEventListener('click', ()=>{
-                 /* Show sidebar */
-                 sidebar.classList.toggle('show-sidebar')
-                 /* Add padding main */
-                 main.classList.toggle('main-pd')
-             })
-         }
+     const showSidebar = (toggleId, sidebarId, mainId) =>{
+        const toggle = document.getElementById(toggleId),
+              sidebar = document.getElementById(sidebarId),
+              main = document.getElementById(mainId)
+
+        if(toggle && sidebar && main){
+          toggle.addEventListener('click', ()=>{
+            /* Mostrar la barra lateral */
+            sidebar.classList.toggle('show-sidebar')
+            /* Agregar padding al elemento principal */
+            main.classList.toggle('main-pd')
+          })
+        }
       }
-      showSidebar('header-toggle','sidebar', 'main')
-      
-      /*=============== LINK ACTIVE ===============*/
+
+      //- Función para cambiar el modo
+      const toggleDarkMode = () => {
+        const body = document.body;
+        const modeIcon = document.getElementById('mode-icon');
+        const modeText = document.getElementById('mode-text');
+        const modeTextFloating = document.getElementById('mode-text-floating');
+
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+          modeIcon.classList.remove('ri-moon-line');
+          modeIcon.classList.add('ri-sun-line');
+          modeText.textContent = 'Light Mode';
+          modeTextFloating.textContent = 'Light Mode';
+        } else {
+          modeIcon.classList.remove('ri-sun-line');
+          modeIcon.classList.add('ri-moon-line');
+          modeText.textContent = 'Dark Mode';
+          modeTextFloating.textContent = 'Dark Mode';
+        }
+      };
+
+      //- Mostrar la barra lateral
+      showSidebar('header-toggle', 'sidebar', 'main');
+
+      //- Cambiar el color del enlace activo
       const sidebarLink = document.querySelectorAll('.sidebar__link')
-      
+
       function linkColor(){
-          sidebarLink.forEach(l => l.classList.remove('active-link'))
-          this.classList.add('active-link')
+        sidebarLink.forEach(l => l.classList.remove('active-link'))
+        this.classList.add('active-link')
       }
-      
-      sidebarLink.forEach(l => l.addEventListener('click', linkColor))
+
+      sidebarLink.forEach(l => l.addEventListener('click', linkColor));
+
+      //- Evento para cambiar el modo
+      document.getElementById('mode-toggle-button').addEventListener('click', function(event) {
+        event.preventDefault();  // Evita que la página se recargue al hacer clic en el enlace
+        toggleDarkMode();
+      });

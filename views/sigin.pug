@@ -16,7 +16,7 @@ html(lang="es")
       .info-childs
         h2 - Bienvenido  -
         p ¿Ya tienes una cuenta?
-        input#sign-in(type="button" value="Iniciar Sesión")
+        input(type="button" value="Iniciar Sesión" id ="sign-in")
     .form-information
       .form-information-childs
         h2 Crear una Cuenta
@@ -37,3 +37,8 @@ html(lang="es")
           input(type="submit" value="Registrarse")
           .alerta-error Todos los campos son obligatorios
           .alerta-exito Te registraste correctamente
+
+  script.
+    document.getElementById('sig-in').addEventListener('click', function() {
+      window.location.href = '/login';
+    });

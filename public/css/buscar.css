@@ -1,0 +1,45 @@
+body {
+  margin: 2rem;
+  height: 80vh;
+  font-family: "Poppins", sans-serif;
+  background-image: url("/img/Search.svg");
+}
+
+.general-container {
+  margin: 3rem auto;
+  height: 100px;
+  text-align: center;
+}
+
+.search-bar {
+  border: 2px solid #000000;
+  padding: 1rem 2rem;
+  width: 80%;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+.search-bar .inputSearch {
+  border-radius: 1.5rem;
+  border: 2px solid #151515;
+  width: 70%;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+}
+.search-bar .inputSearch::placeholder {
+  margin-left: 0.5rem;
+}
+.search-bar .buttonSearch {
+  width: 25%;
+  height: 3rem;
+  font-size: 1.2rem;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.search-bar .buttonSearch:hover {
+  background-color: #b8c1ec;
+}
+
+/*# sourceMappingURL=buscar.css.map */
