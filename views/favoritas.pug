@@ -1,0 +1,136 @@
+extends layout
+
+block content
+    head
+        link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Amplify
+        // Fonts
+        link(href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap", rel="stylesheet")
+        // CSS Estilos
+        link(rel="stylesheet", href="css/albumes.css")
+    body
+        button#btn-add Agregar Canción a Favoritas
+
+        table
+            thead
+                tr
+                    th Imagen de la Canción
+                    th Nombre
+                    th Duración
+                    th Año
+                    th Álbum
+                    th Acciones
+            tbody
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 1")
+                    td Nombre Canción 1
+                    td 3:45
+                    td 2022
+                    td Álbum 1
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(1)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(1)") Eliminar
+                        button(class="btn-play", onclick="playSong(1)") Reproducir
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 2")
+                    td Nombre Canción 2
+                    td 4:15
+                    td 2021
+                    td Álbum 2
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(2)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(2)") Eliminar
+                        button(class="btn-play", onclick="playSong(2)") Reproducir
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 3")
+                    td Nombre Canción 3
+                    td 3:30
+                    td 2020
+                    td Álbum 3
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(3)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(3)") Eliminar
+                        button(class="btn-play", onclick="playSong(3)") Reproducir
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 4")
+                    td Nombre Canción 4
+                    td 4:00
+                    td 2019
+                    td Álbum 4
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(4)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(4)") Eliminar
+                        button(class="btn-play", onclick="playSong(4)") Reproducir
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 5")
+                    td Nombre Canción 5
+                    td 3:20
+                    td 2018
+                    td Álbum 5
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(5)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(5)") Eliminar
+                        button(class="btn-play", onclick="playSong(5)") Reproducir
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 6")
+                    td Nombre Canción 6
+                    td 3:45
+                    td 2017
+                    td Álbum 6
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(6)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(6)") Eliminar
+                        button(class="btn-play", onclick="playSong(6)") Reproducir
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 7")
+                    td Nombre Canción 7
+                    td 3:55
+                    td 2016
+                    td Álbum 7
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(7)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(7)") Eliminar
+                        button(class="btn-play", onclick="playSong(7)") Reproducir
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 8")
+                    td Nombre Canción 8
+                    td 4:10
+                    td 2015
+                    td Álbum 8
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(8)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(8)") Eliminar
+                        button(class="btn-play", onclick="playSong(8)") Reproducir
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 9")
+                    td Nombre Canción 9
+                    td 3:30
+                    td 2014
+                    td Álbum 9
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(9)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(9)") Eliminar
+                        button(class="btn-play", onclick="playSong(9)") Reproducir
+                tr
+                    td
+                        img(src="https://via.placeholder.com/150", alt="Imagen de la Canción 10")
+                    td Nombre Canción 10
+                    td 4:25
+                    td 2013
+                    td Álbum 10
+                    td
+                        button(class="btn-add-favorite", onclick="addFavorite(10)") Agregar a Favoritas
+                        button(class="btn-delete", onclick="deleteSong(10)") Eliminar
+                        button(class="btn-play", onclick="playSong(10)") Reproducir

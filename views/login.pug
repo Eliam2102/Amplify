@@ -18,15 +18,15 @@ html
         .form-information-childs
           h2 Iniciar Sesión
           p Inicia sesión con tu cuenta
-          form.form.form-login(novalidate)
+          form(action='/login', method='GET', class='.form.form-login')
             div
               label
                 i.bx.bx-envelope
-                input(type="email" placeholder="Correo Electrónico" name="userEmail")
+                input(type="email" placeholder="Correo Electrónico" name="username")
             div
               label
                 i.bx.bx-lock-alt
-                input(type="password" placeholder="Contraseña" name="userPassword")
+                input(type="password" placeholder="Contraseña" name="password")
             input(type="submit" value="Iniciar Sesión")
             .alerta-error Todos los campos son obligatorios
             .alerta-exito Te registraste correctamente

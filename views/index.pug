@@ -5,190 +5,48 @@ block content
     link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", href="css/index.css")
+    link(rel="stylesheet", href="/css/index.css")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Amplify
+    // Fonts
     link(href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap", rel="stylesheet")
   body
-    // partial:index.partial.html
-    .album-cover
-      .swiper
-        .swiper-wrapper
-          .swiper-slide
-            img(src="/img/chill hits.jpg")
-            .overlay
-              a(href="https://www.youtube.com/watch?v=aatr_2MstrI&ab_channel=CleanBandit" target="_blank")
-                ion-icon(name="logo-youtube")
-          .swiper-slide
-            img(src="/img/mega hit mix.jpg")
-            .overlay
-              a(href="https://www.youtube.com/watch?v=qEnfeG8uBRY&ab_channel=AliciaKeys-Topic" target="_blank")
-                ion-icon(name="logo-youtube")
-          .swiper-slide
-            img(src="/img/viva latino.jpg")
-            .overlay
-              a(href="https://www.youtube.com/watch?v=h5oHhGlWKf0&ab_channel=MuzikPlay" target="_blank")
-                ion-icon(name="logo-youtube")
-          .swiper-slide
-            img(src="/img/rock classics.jpg")
-            .overlay
-              a(href="https://www.youtube.com/watch?v=a5uQMwRMHcs&ab_channel=DaftPunkVEVO" target="_blank")
-                ion-icon(name="logo-youtube")
-          .swiper-slide
-            img(src="/img/rap caviar.jpg")
-            .overlay
-              a(href="https://www.youtube.com/watch?v=H5v3kku4y6Q&ab_channel=HarryStylesVEVO" target="_blank")
-                ion-icon(name="logo-youtube")
-          .swiper-slide
-            img(src="/img/today top hits.jpg")
-            .overlay
-              a(href="https://www.youtube.com/watch?v=9HDEHj2yzew&ab_channel=DuaLipa" target="_blank")
-                ion-icon(name="logo-youtube")
-          .swiper-slide
-            img(src="/img/all out.jpg")
-            .overlay
-              a(href="https://www.youtube.com/watch?v=tCXGJQYZ9JA&ab_channel=TaylorSwiftVEVO" target="_blank")
-                ion-icon(name="logo-youtube")
-    .music-player
-      h1 Title
-      p Song Name
-      audio#song
-        source(src="song-list/Luke-Bergs-Gold.mp3" type="audio/mpeg")
-      input(type="range" value="0" id="progress")
-      .controls
-        button.backward
-          i.fa-solid.fa-backward
-        button.play-pause-btn
-          i.fa-solid.fa-play#controlIcon
-        button.forward
-          i.fa-solid.fa-forward
-  script.
-    const progress = document.getElementById("progress");
-    const song = document.getElementById("song");
-    const controlIcon = document.getElementById("controlIcon");
-    const playPauseButton = document.querySelector(".play-pause-btn");
-    const forwardButton = document.querySelector(".controls button.forward");
-    const backwardButton = document.querySelector(".controls button.backward");
-    const songName = document.querySelector(".music-player h1");
-    const artistName = document.querySelector(".music-player p");
+    header
+      h1 Bienvenido a Amplify
+      p Tu gestor de música personal
 
-    const songs = [
-      {
-        title: "Symphony",
-        name: "Clean Bandit ft. Zara Larsson",
-        source: "songs/Song1.mp3",
-      },
-      {
-        title: "Pawn It All",
-        name: "Alicia Keys",
-        source: "songs/Song2.mp3",
-      },
-      {
-        title: "Seni Dert Etmeler",
-        name: "Madrigal",
-        source: "songs/Song3.mp3",
-      },
-      {
-        title: "Instant Crush",
-        name: "Daft Punk ft. Julian Casablancas",
-        source: "songs/Song4.mp3",
-      },
-      {
-        title: "As It Was",
-        name: "Harry Styles",
-        source: "songs/Song5.mp3",
-      },
-      {
-        title: "Physical",
-        name: "Dua Lipa",
-        source: "songs/Song6.mp3",
-      },
-      {
-        title: "Delicate",
-        name: "Taylor Swift",
-        source: "songs/Song7.mp3",
-      },
-    ];
+    section.featured
+      h2 Destacados
+      // Aquí puedes agregar contenido destacado si lo deseas
 
-    let currentSongIndex = 3;
+    section.search
+      h2 Buscar Música
+      form(action='/buscar', method='GET', class='search-bar')
+        input(type='text', name='q', class='inputSearch', placeholder='Buscar canción, artista, álbum, género')
+        button(type='submit', class='buttonSearch')
+          i(class="ri-search-eye-line")
 
-    function updateSongInfo() {
-      songName.textContent = songs[currentSongIndex].title;
-      artistName.textContent = songs[currentSongIndex].name;
-      song.src = songs[currentSongIndex].source;
-    }
+    section.recent-playlists
+      h2 Playlists
+      .grid
+        a.card(href="/playlists") Todas las Playlists
+          i.ri-playlist
+      
+    section.recent-playlists
+      h2 Albumes
+      .grid
+        a.card(href="/albums") Todos los Álbumes
+          i.ri-album
 
-    song.addEventListener("timeupdate", function () {
-      if (!song.paused) {
-        progress.value = song.currentTime;
-      }
-    });
+    section.recommendations
+      h2 Recomendaciones para Ti
+      ul.songs
+        li
+          a(href="/songs") Todas las Canciones
+            | Ver todas las canciones
+            i.ri-music-note
+        // Agrega más botones para recomendaciones si lo deseas
 
-    song.addEventListener("loadedmetadata", function () {
-      progress.max = song.duration;
-      progress.value = song.currentTime;
-    });
-
-    function pauseSong() {
-      song.pause();
-      controlIcon.classList.remove("fa-pause");
-      controlIcon.classList.add("fa-play");
-    }
-
-    function playSong() {
-      song.play();
-      controlIcon.classList.add("fa-pause");
-      controlIcon.classList.remove("fa-play");
-    }
-
-    function playPause() {
-      if (song.paused) {
-        playSong();
-      } else {
-        pauseSong();
-      }
-    }
-
-    playPauseButton.addEventListener("click", playPause);
-
-    progress.addEventListener("input", function () {
-      song.currentTime = progress.value;
-    });
-
-    progress.addEventListener("change", function () {
-      playSong();
-    });
-
-    forwardButton.addEventListener("click", function () {
-      currentSongIndex = (currentSongIndex + 1) % songs.length;
-      updateSongInfo();
-      playPause();
-    });
-
-    backwardButton.addEventListener("click", function () {
-      currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-      updateSongInfo();
-      playPause();
-    });
-
-    updateSongInfo();
-
-    var swiper = new Swiper(".swiper", {
-      effect: "coverflow",
-      centeredSlides: true,
-      initialSlide: 3,
-      slidesPerView: "auto",
-      allowTouchMove: false,
-      spaceBetween: 40,
-      coverflowEffect: {
-        rotate: 25,
-        stretch: 0,
-        depth: 50,
-        modifier: 1,
-        slideShadows: false,
-      },
-      navigation: {
-        nextEl: ".forward",
-        prevEl: ".backward",
-      },
-    });
+    footer
+      // Reproductor de música simple
+      audio(src="audio.mp3", controls)

@@ -1,206 +1,100 @@
-* 
-  padding: 0
-  margin: 0
-  box-sizing: border-box
-  font-family: 'Montserrat', sans-serif
-
-body.login
-  display: flex
-  align-items: center
-  justify-content: center
-  height: 100vh
-  background-image: url('/img/login.svg')
-  background-size: cover
-
-body.register
-  display: flex
-  align-items: center
-  justify-content: center
-  height: 100vh
-  background-image: url('/img/Podcast.svg')
-  background-size: cover
-
-.container-form
-  display: flex
-  border-radius: 20px
-  box-shadow: 0 5px 7px rgba(0, 0, 0, .1)
-  height: 500px
-  max-width: 900px
-  transition: all 1s ease
-  margin: 10px
-
-.information
-  width: 40%
-  display: flex
-  align-items: center
-  text-align: center
-  background-color: #b8c1ec
-  border-top-left-radius: 20px
-  border-bottom-left-radius: 20px
-
-.info-childs
-  width: 100%
-  padding: 0 30px
-
-  h2
-    font-size: 2.5rem
-    color: #333
-
-  p
-    margin: 15px 0 
-    color: #555
-
-  input
-    background-color: transparent
-    outline: none
-    border: solid 2px #232946
-    border-radius: 20px
-    padding: 10px 20px
-    color: #232946
-    cursor: pointer
-    transition: background-color .3s ease
-
-    &:hover
-      background-color: #eebbc3
-      border: none
-      color: #fff
-      box-shadow: 0 2px 5px rgba(0, 0, 0, .1)
-
-.form-information
-  display: flex
-  align-items: center
-  justify-content: center
-  width: 60%
-  text-align: center
-  background-color: #f8f8f8
-  border-top-right-radius: 20px
-  border-bottom-right-radius: 20px
-
-.form-information-childs
-  padding: 0 30px
-
-  h2
-    color: #333
-    font-size: 2rem
-
-  p
-    color: #555
-
-.icons
-  margin: 15px 0
-
-  i
-    border-radius: 50%
-    padding: 15px
-    cursor: pointer
-    margin: 0 10px
-    color: #232946
-    border: solid thin #232946
-    transition: background-color 0.3s ease
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .1)
-
-    &:hover
-      background-color: #eebbc3
-      color: #fff
-
 .form
-  margin: 30px 0 0 0
+  display: flex
+  flex-direction: column
+  gap: 10px
+  background-color: #ffffff
+  padding: 30px
+  width: 450px
+  border-radius: 20px
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 
-  label
-    display: flex
-    align-items: center
-    margin-bottom: 15px
-    border-radius: 20px
-    padding: 0 10px
-    background-color: #fff
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .1)
+::placeholder
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 
-    input
-      width: 100%
-      padding: 10px
-      background-color: #fff
-      border: none
-      outline: none
-      border-radius: 20px
-      color: #333
+button
+  &.form
+    align-self: flex-end
 
-    i
-      color: #a7a7a7
+.flex-column > label
+  color: #151717
+  font-weight: 600
 
-  input[type="submit"]
-    background-color:#B8C1EC
-    color: #232946
-    border-radius: 20px
-    padding: 10px 15px
-    border: solid 2px #232946
-    cursor: pointer
-    margin-top: 10px
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .1)
+.inputForm
+  border: 1.5px solid #ecedec
+  border-radius: 10px
+  height: 50px
+  display: flex
+  align-items: center
+  padding-left: 10px
+  transition: 0.2s ease-in-out
 
-    &:hover
-      background-color: #eebbc3
-      border: none
-      color: #fff
-      box-shadow: 0 2px 5px rgba(0, 0, 0, .1)
+.input
+  margin-left: 10px
+  border-radius: 10px
+  border: none
+  width: 85%
+  height: 100%
 
-.hide
-  position: absolute
-  transform: translateY(-300%)
+  &:focus
+    outline: none
 
-/*PERSONALIZACION DE MIS ALERTAS Y MENSAJES */
-.form div .alerta
-  width: 290px
-  text-align: left
-  border-radius: 7px
-  margin-bottom: 10px
-  font-size: .8rem
+.inputForm:focus-within
+  border: 1.5px solid #2d79f3
 
-.form > .alerta-error,
-.form > .alerta-exito
-  display: none
+.flex-row
+  display: flex
+  flex-direction: row
+  align-items: center
+  gap: 10px
+  justify-content: space-between
 
-.form .alertaError
-  display: block
-  background-color: #F66060
-  padding: .5rem 1rem
-  margin-top: 10px
+.flex-row > div > label
+  font-size: 14px
+  color: black
+  font-weight: 400
+
+.span
+  font-size: 14px
+  margin-left: 5px
+  color: #2d79f3
   font-weight: 500
-  font-size: .8rem
+  cursor: pointer
 
-.form .alertaExito
-  display: block
-  background-color: #0ca828
-  padding: .5rem 1rem
-  margin-top: 10px
+.button-submit
+  margin: 20px 0 10px 0
+  background-color: #151717
+  border: none
+  color: white
+  font-size: 15px
   font-weight: 500
-  font-size: .8rem
+  border-radius: 10px
+  height: 50px
+  width: 100%
+  cursor: pointer
 
-.form .error
-  outline: solid 2px #9d2222
+  &:hover
+    background-color: #252727
 
-/*RESPONSIVE FORM*/
-@media screen and (max-width: 750px)
-  html
-    font-size: 12px
+.p
+  text-align: center
+  color: black
+  font-size: 14px
+  margin: 5px 0
 
-@media screen and (max-width: 580px)
-  html
-    font-size: 15px
+.btn
+  margin-top: 10px
+  width: 100%
+  height: 50px
+  border-radius: 10px
+  display: flex
+  justify-content: center
+  align-items: center
+  font-weight: 500
+  gap: 10px
+  border: 1px solid #ededef
+  background-color: white
+  cursor: pointer
+  transition: 0.2s ease-in-out
 
-  .container-form
-    height: auto
-    flex-direction: column
-
-  .information
-    width: 100%
-    padding: 20px
-    border-top-left-radius: 20px
-    border-top-right-radius: 20px
-    border-bottom-left-radius: 0px
-    border-bottom-right-radius: 0
-
-  .form-information
-    width: 100%
-    padding: 20px
-    border-bottom-left-radius: 20px
-    border-top-right-radius: 0
+  &:hover
+    border: 1px solid #2d79f3

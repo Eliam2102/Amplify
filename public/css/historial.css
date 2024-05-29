@@ -1,0 +1,61 @@
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(100vh - 130px);
+  width: 100%;
+  background-size: cover;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: slidein 120s forwards infinite alternate;
+  padding-bottom: 0px;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  margin-top: 20px;
+}
+main table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+}
+main table thead {
+  background-color: #333;
+  color: #fff;
+}
+main table th, main table td {
+  padding: 10px;
+  text-align: left;
+}
+main table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+main table tr:hover {
+  background-color: #ddd;
+}
+main table .filter-buttons {
+  margin-bottom: 10px;
+}
+main table .filter-buttons button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+main table .filter-buttons button:hover {
+  background-color: #555;
+}
+
+/*# sourceMappingURL=historial.css.map */

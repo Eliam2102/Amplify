@@ -21,19 +21,19 @@ html(lang="es")
       .form-information-childs
         h2 Crear una Cuenta
         p Usa tu email para registrarte
-        form.form.form-register(novalidate)
+        form(action='/sigin', method='GET', class='.form.form-register')
           div
             label
               i.bx.bx-user
-              input(type="text" placeholder="Nombre Usuario" name="userName")
+              input(type="text" placeholder="Nombre Usuario" name="username")
           div
             label
               i.bx.bx-envelope
-              input(type="email" placeholder="Correo Electronico" name="userEmail")
+              input(type="email" placeholder="Correo Electronico" name="email")
           div
             label
               i.bx.bx-lock-alt
-              input(type="password" placeholder="Contraseña" name="userPassword")
+              input(type="password" placeholder="Contraseña" name="password")
           input(type="submit" value="Registrarse")
           .alerta-error Todos los campos son obligatorios
           .alerta-exito Te registraste correctamente

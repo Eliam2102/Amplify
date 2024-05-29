@@ -35,12 +35,12 @@ html(lang="en")
               span.sidebar__link-name Inicio
               span.sidebar__link-floating Inicio
 
-            a.sidebar__link(href="/albumes")
+            a.sidebar__link(href="/playlists")
               i.ri-play-list-line
               span.sidebar__link-name Mis playlists
               span.sidebar__link-floating Mis platlists
 
-            a.sidebar__link(href="#")
+            a.sidebar__link(href="/musica")
               i.ri-video-line
               span.sidebar__link-name Mi música
               span.sidebar__link-floating Mi música
@@ -52,24 +52,13 @@ html(lang="en")
 
           h3.sidebar__title
             span Library
-
           .sidebar__list
-            a.sidebar__link(href="#")
-              i.ri-history-line
-              span.sidebar__link-name Historial
-              span.sidebar__link-floating Historial
-
-            a.sidebar__link(href="#")
-              i.ri-time-line
-              span.sidebar__link-name Escuchar más tarde
-              span.sidebar__link-floating Escuchar más tarde
-
-            a.sidebar__link(href="#")
+            a.sidebar__link(href="/albumes")
               i.ri-play-circle-line
-              span.sidebar__link-name Playlists
-              span.sidebar__link-floating Playlists
+              span.sidebar__link-name Mis albumes
+              span.sidebar__link-floating Mis albumes
 
-            a.sidebar__link(href="#")
+            a.sidebar__link(href="/favoritas")
               i.ri-heart-3-line
               span.sidebar__link-name Favoritas
               span.sidebar__link-floating Favoritas
@@ -78,12 +67,7 @@ html(lang="en")
             span General
 
           .sidebar__list
-            a.sidebar__link(href="#")
-              i.ri-settings-3-line
-              span.sidebar__link-name Configuración
-              span.sidebar__link-floating Configuración
-
-            a.sidebar__link(href="#")
+            a.sidebar__link(href="/logout")
               i.ri-logout-box-r-line
               span.sidebar__link-name Logout
               span.sidebar__link-floating Logout
@@ -99,7 +83,8 @@ html(lang="en")
           .sidebar__names
             h3.sidebar__name Will Lens
             span.sidebar__email willens@email.com
-          i.ri-arrow-right-s-line
+          a.sidebar__link(href="/user-info")
+            i.ri-arrow-right-s-line
 
     main.main.container#main
         block content
