@@ -15,7 +15,10 @@ const buscar = require('./buscar');
 const musica = require('./musica');
 const playlists = require('./playlists');
 const favoritas = require('./favoritas');
+const reproductor = require('./reproductor');
 const registrarUsuario = require('./registrar-usuario');
+const songController = require('../controllers/songController');
+
 
 
 //Configura las rutas
@@ -26,9 +29,14 @@ router.use('/buscar', buscar);
 router.use('/musica', musica);
 router.use('/playlists', playlists);
 router.use('/favoritas', favoritas);
+router.use('/reproductor', reproductor);
 router.use('/registrar-usuario', registrarUsuario);
 router.use('/', index);
 
 
+//Configurar ruta en especifico de get
+router.get('/songs', songController.getCanciones);
+
+//
 
 module.exports = router;

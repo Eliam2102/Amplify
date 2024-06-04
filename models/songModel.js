@@ -1,7 +1,8 @@
 const axios = require('axios');
 
-class Cancion {
+class cancion {
     constructor(id, titulo, artista, archivo, imagen) {
+        this.id = id;
         this.titulo = titulo;
         this.artista = artista;
         this.archivo = archivo;
@@ -44,10 +45,10 @@ async function addSongToFavorites(id) {
 }
 
 // Función para obtener la lista de canciones
-async function obtenerLista() {
+async function getAll() {
     try {
-        console.log('Obteniendo lal ista de canciones');
-        const response = await axios.get(`${process.env.BASE_URL}/song/getList`);
+        console.log('Obteniendo la lista de canciones');
+        const response = await axios.get(`${process.env.BASE_URL}/songs/getAllSong`);
         return response.data;
     } catch (error) {
         console.error('Error al obtener la lista de canciones:', error.message);
@@ -58,7 +59,7 @@ async function obtenerLista() {
 
 module.exports = {
     agregarCancion,
-    obtenerLista,
+    getAll,
     addSongToFavorites,
     deleteSong
 };

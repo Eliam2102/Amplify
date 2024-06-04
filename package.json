@@ -10,10 +10,11 @@
     "buscar.sass": "sass styles/sass/buscar.sass:public/css/buscar.css",
     "sass-layout": "sass styles/sass/layout.sass:public/css/layout.css",
     "musica.sass": "sass styles/sass/musica.sass:public/css/musica.css",
+    "reproductor.sass": "sass styles/sass/reproductor.sass:public/css/reproductor.css",
     "favoritas.sass": "sass styles/sass/favoritas.sass:public/css/favoritas.css",
     "playlists.sass": "sass styles/sass/playlists.sass:public/css/playlists.css",
     "sass-watch": "sass --watch styles/sass:public/css",
-    "start": "npm run sass && npm run sass-layout && npm run favoritas.sass && npm run playlists.sass && npm run musica.sass && npm run index.sass && npm run albumes.sass && npm run buscar.sass && nodemon server.js"
+    "start": "npm run sass && npm run sass-layout && npm run reproductor.sass && npm run favoritas.sass && npm run playlists.sass && npm run musica.sass && npm run index.sass && npm run albumes.sass && npm run buscar.sass && nodemon server.js"
   },
   "author": "Eliam Jesus Cauich Villanueva",
   "license": "ISC",

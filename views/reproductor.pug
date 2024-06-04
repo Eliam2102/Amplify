@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    head
+        link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Amplify
+        link(href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap", rel="stylesheet")
+        link(rel="stylesheet", href="css/reproductor.css")
+    body
+        h1 Amplify
+        .music-container(id="music-container")
+            .music-info
+                h4(id="title")
+                    .progress-container(id="progress-container")
+                        .progress(id="progress")
+                            audio(src="music/ukulele.mp3" id="audio")
+            .img-container
+                img(src="img/chill hits.jpg" alt="music-cover" id="cover")
+            .navigation
+                button#prev.action-btn
+                    i.fas.fa-backward
+                button#play.action-btn.action-btn-big
+                    i.fas.fa-play
+                button#next.action-btn
+                    i.fas.fa-forward
+                        svg#buttonFavorite(width="40" height="40")
+                
+    script(src="script.js")
+        

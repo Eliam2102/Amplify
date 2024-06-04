@@ -60,6 +60,7 @@ app.use(express.urlencoded({ extended: true }));
 //Procesa los archivos estáticos que están en la carpeta public
 app.use(express.static('public'));
 app.use(express.json());
+app.use(flash());
 
 
 //Configuración de la plantilla pug
@@ -100,9 +101,9 @@ app.get('/logout', async (req, res) => {
     });
 });
   
+
 //Puerto en el cual se escucha el servidor
-const port = 3000
-;
+const port = 3000;
 app.listen(port, () => {
     console.log(`Servidor iniciado en http://localhost:${port}`);
 });

@@ -56,6 +56,12 @@ button {
 }
 
 .agregar-favoritos {
+  padding: 0.5em 1em;
+  margin: 0 0.5em;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
   background-color: #4CAF50;
   color: white;
 }
@@ -64,6 +70,12 @@ button {
 }
 
 .eliminar {
+  padding: 0.5em 1em;
+  margin: 0 0.5em;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
   background-color: #f44336;
   color: white;
 }
@@ -72,6 +84,12 @@ button {
 }
 
 .reproducir {
+  padding: 0.5em 1em;
+  margin: 0 0.5em;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
   background-color: #008CBA;
   color: white;
 }
@@ -105,6 +123,7 @@ button {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin-top: 15px;
+  border-radius: 4px;
 }
 
 .close {
@@ -140,9 +159,6 @@ form button {
   background-color: #555;
   color: white;
   margin-top: 10px;
-}
-form button:hover {
-  background-color: #3c3c3c;
 }
 
 /*# sourceMappingURL=musica.css.map */

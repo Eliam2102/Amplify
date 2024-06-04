@@ -12,6 +12,7 @@ block content
     body
         button#btn-add Add Song
         // Tabla de canciones
+        h1
         table
             thead
                 tr
@@ -23,12 +24,12 @@ block content
             tbody
                 - if (canciones && canciones.length)
                     each cancion in canciones
-                        tr
+                        tr(onclick="playAudio(this)")
                             td
-                                img(src=cancion.imagen)
-                            td= cancion.id_cancion
-                            td= cancion.titulo
-                            td= cancion.artista
+                                img(src=cancion.imagen, alt="cover de la cancion")
+                            td cancion.id
+                            td cancion.titulo
+                            td cancion.artista
                             td
                                 audio.controls(style="display:none")
                                     source(src=cancion.archivo, type="audio/mp3")
@@ -51,24 +52,24 @@ block content
                     input(type="file", id="imagen", name="imagen", accept="image/*", required)
                     button(type="submit") Add Song
 
-        script.
-            document.getElementById('btn-add').addEventListener('click', function() {
-                document.getElementById('modal-add-song').style.display = 'block';
-            });
+    script.
+        document.getElementById('btn-add').addEventListener('click', function() {
+            document.getElementById('modal-add-song').style.display = 'block';
+        });
 
-            function closeModal() {
+        function closeModal() {
+            document.getElementById('modal-add-song').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal-add-song')) {
                 document.getElementById('modal-add-song').style.display = 'none';
             }
+        }
 
-            window.onclick = function(event) {
-                if (event.target == document.getElementById('modal-add-song')) {
-                    document.getElementById('modal-add-song').style.display = 'none';
-                }
-            }
-
-            // Script para reproducir audio al hacer clic en la fila de la tabla
-            function playAudio(row) {
-                const audio = row.querySelector('audio');
-                audio.style.display = 'block';
-                audio.play();
-            }
+        // Script para reproducir audio al hacer clic en la fila de la tabla
+        function playAudio(row) {
+            const audio = row.querySelector('audio');
+            audio.style.display = 'block';
+            audio.play();
+        }

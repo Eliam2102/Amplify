@@ -13,7 +13,7 @@ function sendErrorResponse(res, statusCode, message) {
 // Controlador para agregar una canción
 async function agregarCancion(titulo, artista, archivo, imagen) {
     try {
-        console.log('Datos de la nueva publicación:',titulo, artista, archivo, imagen);
+        console.log('Datos de la nueva ión:',titulo, artista, archivo, imagen);
 
         const cancion = {
             titulo: titulo,
@@ -34,14 +34,15 @@ async function agregarCancion(titulo, artista, archivo, imagen) {
 }
 
 //Controlador para obtener la lista de canciones
-async function getLista(req, res) {
+// Obtener todas las canciones
+async function getCanciones(req, res) {
     try {
-        const canciones = await songModel.obtenerLista();
+        const canciones = await songModel.getAll();
         console.log('Canciones obtenidas:', canciones);
-        res.render('canciones', { title: 'DATE A LIVE FANS', canciones: canciones || [] });
+        res.render('musica', { title: 'Amplify tu gestor de música', canciones: canciones || [] });
     } catch (error) {
         console.error('Error al obtener canciones:', error);
-        res.status(500).send('Error al obtener canciones');
+        res.status(500).send('Error al obtener las canciones');
     }
 }
 
@@ -59,5 +60,5 @@ async function deleteSong(req, res) {
 
 module.exports = {
     agregarCancion,
-    getLista
+    getCanciones
 };

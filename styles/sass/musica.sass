@@ -4,6 +4,7 @@ $secondary-color: #555
 $success-color: #4CAF50
 $danger-color: #f44336
 $info-color: #008CBA
+$border-radius: 4px // Borde redondeado
 
 // Mixins
 =button-style
@@ -11,13 +12,13 @@ $info-color: #008CBA
   margin: 0 0.5em
   border: none
   cursor: pointer
-  border-radius: 4px
+  border-radius: $border-radius
   transition: background-color 0.3s, color 0.3s
 
 // Styles
 body
   font-family: Arial, sans-serif
-  margin: 20px 0 0 0 // Añadida separación en la parte superior
+  margin: 20px 0 0 0 // Espaciado superior
   padding: 0
   background-color: #f4f4f4
 
@@ -45,12 +46,12 @@ th, td
   border: 1px solid #ddd
 
 button
-  +button-style
+  @include button-style
 
 #btn-add
-  display: inline-block // Cambiado a inline-block para alinear a la derecha
-  float: right // Alineado a la derecha
-  margin: 1em 0 // Añadido margen superior e inferior
+  display: inline-block // Alineado a la derecha
+  float: right
+  margin: 1em 0 // Margen superior e inferior
   background-color: $primary-color
   color: white
   font-size: 1em
@@ -59,18 +60,21 @@ button
     background-color: darken($primary-color, 10%)
 
 .agregar-favoritos
+  @include button-style
   background-color: $success-color
   color: white
   &:hover
     background-color: darken($success-color, 10%)
 
 .eliminar
+  @include button-style
   background-color: $danger-color
   color: white
   &:hover
     background-color: darken($danger-color, 10%)
 
 .reproducir
+  @include button-style
   background-color: $info-color
   color: white
   &:hover
@@ -85,7 +89,7 @@ button
   width: 100%
   height: 100%
   background-color: rgba(0, 0, 0, 0.6)
-  backdrop-filter: blur(5px) // Efecto de desenfoque en el fondo
+  backdrop-filter: blur(5px) // Efecto de desenfoque
 
 .modal-content
   display: flex
@@ -93,15 +97,16 @@ button
   position: fixed
   z-index: 2
   left: 50%
-  top: 60% // Ajustado hacia abajo
+  top: 60% // Posición ajustada
   transform: translate(-50%, -50%)
-  width: 70% // Reducido el ancho del modal
+  width: 70% // Ancho reducido
   max-width: 400px
   background-color: #fff
   border-top: 5px solid $primary-color
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
   padding: 20px
-  margin-top: 15px // Incrementado el margen superior para aumentar la separación
+  margin-top: 15px // Margen superior aumentado
+  border-radius: $border-radius // Bordes redondeados
 
 .close
   color: #aaa
@@ -116,19 +121,16 @@ button
 form
   display: flex
   flex-direction: column
-  
+
   label
-    margin: 5px 0 // Reducir el espacio vertical entre etiquetas
-  
+    margin: 5px 0 // Espacio vertical reducido
+
   input
     padding: 10px
-    margin-bottom: 10px // Reducir el espacio inferior entre campos de entrada
-  
+    margin-bottom: 10px // Espacio inferior reducido
+
   button
-    +button-style
+    @include button-style
     background-color: $secondary-color
     color: white
-    margin-top: 10px // Agregar un poco de espacio entre el último campo de entrada y el botón
-    &:hover
-      background-color: darken($secondary-color, 10%)
-
+    margin-top: 10px // Margen entre el campo de entrada y el
