@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
 .form {
   display: flex;
   flex-direction: column;
@@ -9,6 +11,397 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.noto-sans-Noto style {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body.registro {
+  background-image: url("/img/sigin.png");
+  margin: 2rem;
+  height: 80vh;
+  font-family: "Poppins", sans-serif;
+}
+
+body.login {
+  margin: 2rem;
+  height: 80vh;
+  font-family: "Poppins", sans-serif;
+  background-image: url("/img/login.png");
+}
+
+.centered-index-content {
+  margin: 5% 10% 0 10%;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  background-color: #b8c1ec;
+}
+
+.registro-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  background-color: #eebbc3;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  flex-direction: column;
+}
+.form-group button {
+  color: white;
+  background-color: #232946;
+  border-radius: 20px;
+  align-self: center;
+}
+.form-group button:hover {
+  background-color: #b96b77;
+}
+
+#mostrarContrasena {
+  width: 80px;
+  align-self: flex-end;
+}
+
+.form-label {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #232946;
+  border-radius: 20px;
+  align-self: center;
+}
+.form-input input:hover, .form-input input:focus, .form-input input:active, .form-input input:focus-visible {
+  border: 1px solid #b96b77;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: #b96b77;
+}
+
+.show-password-label {
+  font-size: 12px;
+}
+
+.submit-button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #232946;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 20px;
+  width: 100%;
+}
+.submit-button:hover {
+  background-color: #b96b77;
+}
+
+.register-link {
+  margin-top: 10px;
+  text-align: center;
+}
+.register-link form {
+  margin: 0;
+}
+.register-link button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  background-color: #232946;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.register-link button:hover {
+  background-color: #b96b77;
+}
+.register-link span {
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+#eliminar-del-carrito {
+  width: 150px;
+  font-size: 1em;
+}
+
+.procesar-compra-container {
+  text-align: center;
+  margin: 2.5%;
+  padding: 2.5%;
+}
+.procesar-compra-container form {
+  margin-top: 2em;
+}
+
+.procesar-compra-detalle {
+  display: grid;
+  justify-content: center;
+  grid-gap: 0.5em;
+}
+
+.procesar-compra-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #87A8A4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  width: -moz-available;
+  width: -webkit-fill-available;
+}
+.procesar-compra-button:hover {
+  background-color: #416D19;
+}
+
+p {
+  color: #27021e;
+}
+
+p.empty-cart {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  margin-top: 20px;
+}
+
+.general-container {
+  margin: 5%;
+  min-width: 250px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 250px;
+}
+.search-bar input[type=text] {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #232946;
+  border-radius: 20px;
+}
+.search-bar input:hover, .search-bar input:focus, .search-bar input:active, .search-bar input:focus-visible {
+  border: 1px solid #b96b77;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: #b96b77;
+}
+.search-bar button {
+  padding: 8px 15px;
+  margin-left: 10px;
+  background-color: #232946;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.search-bar button:hover {
+  background-color: #b96b77;
+}
+
+.producto-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+  gap: 25px;
+}
+
+.producto {
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.producto img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+.producto p {
+  text-align: center;
+  color: #000;
+}
+.producto h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: #E493B3;
+}
+.producto button {
+  padding: 8px 15px;
+  background-color: #232946;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: -moz-available;
+  width: -webkit-fill-available;
+}
+.producto button:hover {
+  background-color: #b96b77;
+}
+
+.producto-label {
+  font-size: 18px;
+  font-family: "Reddit Mono";
+}
+
+.producto-precio {
+  font-size: 14px;
+  font-family: "Reddit Mono";
+}
+
+.producto-cell {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: auto 0.15em;
+}
+.producto-cell img {
+  max-width: 50px;
+}
+.producto-cell span {
+  margin-left: 2em;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.button-confirm,
+.button-cancel,
+.button-return {
+  display: grid;
+  justify-content: center;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 10px;
+  width: -moz-available;
+  width: -webkit-fill-available;
+}
+
+.button-confirm {
+  background-color: #87A8A4;
+  color: white;
+}
+.button-confirm:hover {
+  background-color: #416D19;
+}
+
+.button-cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.button-return {
+  background-color: #9AD0EC;
+  color: white;
+}
+.button-return:hover {
+  background-color: #1572A1;
+}
+
+.button-confirm:hover,
+.button-cancel:hover,
+.button-return:hover {
+  opacity: 0.8;
+}
+
+.confirmation-title {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.confirmation-message {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    padding: 5px 0;
+  }
+  nav ul {
+    margin-left: 10px;
+  }
+  nav li {
+    margin-right: 10px;
+  }
+  .catalogo-container {
+    margin: 5% 20% 5% 20%;
+  }
+  .centered-index-content {
+    margin: 5% 10% 0 10%;
+  }
+  .producto-container {
+    grid-template-columns: repeat(1, minmax(100px, 1fr));
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .catalogo-container {
+    margin: 5% 15% 5% 15%;
+  }
+  .centered-index-content {
+    margin: 5% 10% 0 10%;
+  }
+  .producto-container {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
 ::placeholder {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }

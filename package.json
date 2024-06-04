@@ -19,7 +19,9 @@
   "license": "ISC",
   "dependencies": {
     "@remixicon/vue": "^4.2.0",
+    "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
     "connect": "^3.7.0",
     "connect-flash": "^0.1.1",
     "connect-sqlite3": "^0.9.15",
@@ -31,6 +33,7 @@
     "express-validator": "^7.0.1",
     "jquery": "^3.7.1",
     "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^3.9.7",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
@@ -39,6 +42,7 @@
     "remixicon": "^4.2.0",
     "sass": "^1.75.0",
     "session": "^0.1.0",
+    "sweetalert2": "^11.11.0",
     "vigenere": "^1.0.2"
   },
   "devDependencies": {

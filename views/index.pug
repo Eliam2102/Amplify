@@ -10,6 +10,7 @@ block content
     title Amplify
     // Fonts
     link(href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap", rel="stylesheet")
+
   body
     header
       h1 Bienvenido a Amplify
@@ -48,5 +49,15 @@ block content
         // Agrega más botones para recomendaciones si lo deseas
 
     footer
-      // Reproductor de música simple
-      audio(src="audio.mp3", controls)
+      section.featured
+        audio(src="audio.mp3", controls)
+        .controls
+          button(class="btn-icon", id="btn-previous")
+            i.ri-skip-back-fill
+          button(class="btn-icon", id="btn-play-pause")
+            i.ri-play-fill
+          button(class="btn-icon", id="btn-next")
+            i.ri-skip-forward-fill
+          .volume-control
+            i.ri-volume-up-fill
+            input(type="range", id="volume-control", min="0", max="1", step="0.1", value="1")

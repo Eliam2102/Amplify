@@ -4,33 +4,44 @@ html
     title Iniciar sesión
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", type="text/css", href="css/styles.css")
+    link(rel="stylesheet", type="text/css", href="/css/styles.css")
     link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
+    link(href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap" rel="stylesheet")
 
   body.login
-    .container-form.register
-      .information
-        .info-childs
-          h2 ¡¡Bienvenido nuevamente!!
-          p ¿Aún no tienes una cuenta?
-          input(type="button" value="Registrarse" id="sign-up")
-      .form-information
-        .form-information-childs
-          h2 Iniciar Sesión
-          p Inicia sesión con tu cuenta
-          form(action='/login', method='GET', class='.form.form-login')
-            div
-              label
-                i.bx.bx-envelope
-                input(type="email" placeholder="Correo Electrónico" name="username")
-            div
-              label
-                i.bx.bx-lock-alt
-                input(type="password" placeholder="Contraseña" name="password")
-            input(type="submit" value="Iniciar Sesión")
-            .alerta-error Todos los campos son obligatorios
-            .alerta-exito Te registraste correctamente
-  script.
-    document.getElementById('sign-up').addEventListener('click', function() {
-      window.location.href = '/sigin';
-    });
+    .login-container
+      h1.title #{title}
+
+      if error
+        p= error
+      form(action='/login' method='POST' class='login-form')
+        .form-group
+          label(for='username' class='form-label') Usuario
+          input(type='text' name='username' id='username' placeholder='Usuario' class='form-input', required)
+
+        .form-group
+          label(for='password' class='form-label') Contraseña
+          input(type='password' name='password' id='password' placeholder='Contraseña' class='form-input', required)
+          button(type='button' id='mostrarContrasena')
+            i.material-symbols-rounded visibility_off
+
+        .form-group
+          button(type='submit' class='submit-button') Iniciar sesión
+
+      p ¿No tienes una cuenta?
+        a(href='/sigin' class='register-link') Regístrate
+
+    //- Script en línea para mostrar/ocultar contraseña
+    script.
+      const passwordInput = document.getElementById('password');
+      const mostrarContrasenaBtn = document.getElementById('mostrarContrasena');
+
+      mostrarContrasenaBtn.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          mostrarContrasenaBtn.innerHTML = '<i class="material-symbols-rounded">visibility</i>';
+        } else {
+          passwordInput.type = 'password';
+          mostrarContrasenaBtn.innerHTML = '<i class="material-symbols-rounded">visibility_off</i>';
+        }
+      });

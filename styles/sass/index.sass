@@ -15,8 +15,8 @@ header
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1)
   transition: all 0.3s ease
 
-header:hover
-  transform: translateY(-3px)
+  &:hover
+    transform: translateY(-3px)
 
 section
   background-color: #b8c1ec
@@ -49,8 +49,8 @@ footer
   font-size: 18px
   transition: border-color 0.3s ease
 
-.inputSearch:focus
-  border-color: #eebbc3
+  &:focus
+    border-color: #eebbc3
 
 .buttonSearch
   background-color: #eebbc3
@@ -62,8 +62,8 @@ footer
   cursor: pointer
   transition: background-color 0.3s ease
 
-.buttonSearch:hover
-  background-color: #b8c1ec
+  &:hover
+    background-color: #b8c1ec
 
 // Estilos para las cards de las playlists y álbumes
 .grid
@@ -82,11 +82,11 @@ a.card
   color: #232946
   transition: all 0.3s ease
 
-a.card:hover
-  background-color: #eebbc3
-  color: #232946
-  transform: translateY(-3px)
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1)
+  &:hover
+    background-color: #eebbc3
+    color: #232946
+    transform: translateY(-3px)
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1)
 
 // Estilos para las recomendaciones
 ul.songs
@@ -98,10 +98,10 @@ ul.songs li
   border-bottom: 2px solid #b8c1ec
   transition: all 0.3s ease
 
-ul.songs li:hover
-  background-color: #eebbc3
-  transform: translateY(-3px)
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1)
+  &:hover
+    background-color: #eebbc3
+    transform: translateY(-3px)
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1)
 
 ul.songs li a
   text-decoration: none
@@ -167,3 +167,122 @@ audio
 
   &::-webkit-media-controls-play-button
     display: none
+
+.featured
+  audio
+    width: 100%
+    margin-top: 20px
+
+.controls
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-top: 10px
+
+  @media screen and (max-width: 768px)
+    flex-direction: column
+    align-items: center
+
+.controls .btn-icon
+  background-color: transparent
+  border: none
+  cursor: pointer
+  i
+    font-size: 24px
+    stroke-width: 1.5
+    transition: transform 0.2s
+
+  &:hover i
+    transform: scale(1.2)
+
+.volume-control
+  display: flex
+  align-items: center
+  width: 100%
+
+  @media screen and (max-width: 768px)
+    justify-content: center
+
+.volume-control i
+  margin-right: 10px
+  font-size: 24px
+  stroke-width: 1.5
+  transition: transform 0.2s
+
+.volume-control input[type="range"]
+  -webkit-appearance: none
+  width: 100%
+  max-width: 200px
+  height: 5px
+  border-radius: 5px
+  background-color: #ccc
+  outline: none
+  transition: background 0.3s
+
+.volume-control input[type="range"]::-webkit-slider-thumb
+  -webkit-appearance: none
+  appearance: none
+  width: 15px
+  height: 15px
+  border-radius: 50%
+  background-color: #007bff
+  cursor: pointer
+  transition: background 0.3s, transform 0.2s
+
+.volume-control input[type="range"]::-moz-range-thumb
+  width: 15px
+  height: 15px
+  border-radius: 50%
+  background-color: #007bff
+  cursor: pointer
+  transition: background 0.3s, transform 0.2s
+
+.volume-control input[type="range"]::-ms-thumb
+  width: 15px
+  height: 15px
+  border-radius: 50%
+  background-color: #007bff
+  cursor: pointer
+  transition: background 0.3s, transform 0.2s
+
+.volume-control input[type="range"]:hover::-webkit-slider-thumb
+  transform: scale(1.2)
+
+.volume-control input[type="range"]:hover::-moz-range-thumb
+  transform: scale(1.2)
+
+.volume-control input[type="range"]:hover::-ms-thumb
+  transform: scale(1.2)
+
+// Media queries para responsividad
+@media screen and (max-width: 768px)
+  .grid
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
+  
+  .inputSearch, .buttonSearch
+    padding: 8px
+
+  ul.songs li
+    padding: 8px
+
+  .controls .btn-icon i, .volume-control i
+    font-size: 20px
+
+  .volume-control input[type="range"]
+    max-width: 150px
+
+@media screen and (max-width: 480px)
+  .grid
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr))
+  
+  .inputSearch, .buttonSearch
+    padding: 6px
+
+  ul.songs li
+    padding: 6px
+
+  .controls .btn-icon i, .volume-control i
+    font-size: 18px
+
+  .volume-control input[type="range"]
+    max-width: 120px

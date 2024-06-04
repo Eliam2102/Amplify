@@ -1,165 +1,74 @@
 extends layout
 
 block content
-  head
-    link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", href="/css/musica.css")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Amplify
-    link(href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap", rel="stylesheet")
-  body
-    header
-      h1 Mi música
-    main
-      table
-        thead
-          tr
-            th Título
-            th Artista
-            th Álbum
-            th Acciones
-        tbody
-          tr
-            td Shape of You
-            td Ed Sheeran
-            td Divide
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-          tr
-            td Blinding Lights
-            td The Weeknd
-            td After Hours
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-          tr
-            td Levitating
-            td Dua Lipa
-            td Future Nostalgia
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-          tr
-            td Drivers License
-            td Olivia Rodrigo
-            td SOUR
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-          tr
-            td Good 4 U
-            td Olivia Rodrigo
-            td SOUR
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-          tr
-            td Peaches
-            td Justin Bieber
-            td Justice
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-          tr
-            td Save Your Tears
-            td The Weeknd
-            td After Hours
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-          tr
-            td Bad Habits
-            td Ed Sheeran
-            td =
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-          tr
-            td Montero (Call Me By Your Name)
-            td Lil Nas X
-            td Montero
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-          tr
-            td Kiss Me More
-            td Doja Cat ft. SZA
-            td Planet Her
-            td
-              button.agregar-favoritos
-                i.ri-star-line
-                | Agregar a Favoritos
-              button.eliminar
-                i.ri-delete-bin-line
-                | Eliminar
-              button.reproducir
-                i.ri-play-line
-                | Reproducir
-    script.
-      // Puedes agregar scripts adicionales aquí si es necesario
+    head
+        link(rel="icon", type="image/png", href="/img/apple-music-icon.svg")
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Amplify
+        link(href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap", rel="stylesheet")
+        link(rel="stylesheet", href="css/musica.css")
+    body
+        button#btn-add Add Song
+        // Tabla de canciones
+        table
+            thead
+                tr
+                    th Imagen
+                    th Id Canción
+                    th Título
+                    th Artista
+                    th Audio
+            tbody
+                - if (canciones && canciones.length)
+                    each cancion in canciones
+                        tr
+                            td
+                                img(src=cancion.imagen)
+                            td= cancion.id_cancion
+                            td= cancion.titulo
+                            td= cancion.artista
+                            td
+                                audio.controls(style="display:none")
+                                    source(src=cancion.archivo, type="audio/mp3")
+                - else
+                    tr
+                        td(colspan="5") Aún no hay canciones agregadas
+        // Botón para agregar canciones
+        .modal#modal-add-song
+            .modal-content
+                span.close(onclick="closeModal()") &times;
+                h2 Agregar nueva canción
+                form(action="http://localhost:3002/songs/add-song", method="POST", enctype="multipart/form-data")
+                    label(for="titulo") Nombre:
+                    input(type="text", id="titulo", name="titulo", required)
+                    label(for="artista") Artista:
+                    input(type="text", id="artista", name="artista", required)
+                    label(for="archivo") Selecciona archivo de audio:
+                    input(type="file", id="archivo", name="archivo", accept="audio/*", required)
+                    label(for="imagen") Selecciona caratula:
+                    input(type="file", id="imagen", name="imagen", accept="image/*", required)
+                    button(type="submit") Add Song
+
+        script.
+            document.getElementById('btn-add').addEventListener('click', function() {
+                document.getElementById('modal-add-song').style.display = 'block';
+            });
+
+            function closeModal() {
+                document.getElementById('modal-add-song').style.display = 'none';
+            }
+
+            window.onclick = function(event) {
+                if (event.target == document.getElementById('modal-add-song')) {
+                    document.getElementById('modal-add-song').style.display = 'none';
+                }
+            }
+
+            // Script para reproducir audio al hacer clic en la fila de la tabla
+            function playAudio(row) {
+                const audio = row.querySelector('audio');
+                audio.style.display = 'block';
+                audio.play();
+            }

@@ -11,8 +11,10 @@ block content
         link(href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap", rel="stylesheet")
         // CSS Estilos
         link(rel="stylesheet", href="css/playlists.css")
+
     body
         button#btn-add Agregar Playlist
+
         table
             thead
                 tr
@@ -31,6 +33,7 @@ block content
                         button(class="btn-edit", onclick="editPlaylist(1)") Editar
                         button(class="btn-delete", onclick="deletePlaylist(1)") Borrar
                         button(class="btn-play", onclick="playPlaylist(1)") Reproducir
+
                 //- Playlist 2
                 tr
                     td
@@ -41,6 +44,7 @@ block content
                         button(class="btn-edit", onclick="editPlaylist(2)") Editar
                         button(class="btn-delete", onclick="deletePlaylist(2)") Borrar
                         button(class="btn-play", onclick="playPlaylist(2)") Reproducir
+
                 //- Playlist 3
                 tr
                     td
@@ -51,6 +55,7 @@ block content
                         button(class="btn-edit", onclick="editPlaylist(3)") Editar
                         button(class="btn-delete", onclick="deletePlaylist(3)") Borrar
                         button(class="btn-play", onclick="playPlaylist(3)") Reproducir
+
                 //- Playlist 4
                 tr
                     td
@@ -61,6 +66,7 @@ block content
                         button(class="btn-edit", onclick="editPlaylist(4)") Editar
                         button(class="btn-delete", onclick="deletePlaylist(4)") Borrar
                         button(class="btn-play", onclick="playPlaylist(4)") Reproducir
+
                 //- Playlist 5
                 tr
                     td
@@ -71,53 +77,48 @@ block content
                         button(class="btn-edit", onclick="editPlaylist(5)") Editar
                         button(class="btn-delete", onclick="deletePlaylist(5)") Borrar
                         button(class="btn-play", onclick="playPlaylist(5)") Reproducir
-                //- Playlist 6
-                tr
-                    td
-                        img(src="https://via.placeholder.com/150?text=Playlist+6", alt="Imagen de la Playlist 6")
-                    td Playlist 6
-                    td 11
-                    td
-                        button(class="btn-edit", onclick="editPlaylist(6)") Editar
-                        button(class="btn-delete", onclick="deletePlaylist(6)") Borrar
-                        button(class="btn-play", onclick="playPlaylist(6)") Reproducir
-                //- Playlist 7
-                tr
-                    td
-                        img(src="https://via.placeholder.com/150?text=Playlist+7", alt="Imagen de la Playlist 7")
-                    td Playlist 7
-                    td 9
-                    td
-                        button(class="btn-edit", onclick="editPlaylist(7)") Editar
-                        button(class="btn-delete", onclick="deletePlaylist(7)") Borrar
-                        button(class="btn-play", onclick="playPlaylist(7)") Reproducir
-                //- Playlist 8
-                tr
-                    td
-                        img(src="https://via.placeholder.com/150?text=Playlist+8", alt="Imagen de la Playlist 8")
-                    td Playlist 8
-                    td 13
-                    td
-                        button(class="btn-edit", onclick="editPlaylist(8)") Editar
-                        button(class="btn-delete", onclick="deletePlaylist(8)") Borrar
-                        button(class="btn-play", onclick="playPlaylist(8)") Reproducir
-                //- Playlist 9
-                tr
-                    td
-                        img(src="https://via.placeholder.com/150?text=Playlist+9", alt="Imagen de la Playlist 9")
-                    td Playlist 9
-                    td 7
-                    td
-                        button(class="btn-edit", onclick="editPlaylist(9)") Editar
-                        button(class="btn-delete", onclick="deletePlaylist(9)") Borrar
-                        button(class="btn-play", onclick="playPlaylist(9)") Reproducir
-                //- Playlist 10
-                tr
-                    td
-                        img(src="https://via.placeholder.com/150?text=Playlist+10", alt="Imagen de la Playlist 10")
-                    td Playlist 10
-                    td 16
-                    td
-                        button(class="btn-edit", onclick="editPlaylist(10)") Editar
-                        button(class="btn-delete", onclick="deletePlaylist(10)") Borrar
-                        button(class="btn-play", onclick="playPlaylist(10)") Reproducir
+
+        //- Modal para agregar playlist
+        .modal#modal-add-playlist
+            .modal-content
+                span.close(onclick="closeModal()") &times;
+                h2 Add New Playlist
+                form(action="/add-playlist", method="POST")
+                    label(for="playlist-name") Playlist Name:
+                    input(type="text", id="playlist-name", name="playlistName", required)
+                    label(for="playlist-cover") Playlist Cover:
+                    input(type="file", id="playlist-cover", name="playlistCover", accept="image/*", required)
+                    h3 Select Songs:
+                    ul
+                        //- Lista de canciones para seleccionar
+                        li
+                            input(type="checkbox", id="song1", name="songs[]", value="1")
+                            label(for="song1") Song 1
+                        li
+                            input(type="checkbox", id="song2", name="songs[]", value="2")
+                            label(for="song2") Song 2
+                        li
+                            input(type="checkbox", id="song3", name="songs[]", value="3")
+                            label(for="song3") Song 3
+                        li
+                            input(type="checkbox", id="song4", name="songs[]", value="4")
+                            label(for="song4") Song 4
+                        li
+                            input(type="checkbox", id="song5", name="songs[]", value="5")
+                            label(for="song5") Song 5
+                    button(type="submit") Add Playlist
+
+    script.
+        document.getElementById('btn-add').addEventListener('click', function() {
+            document.getElementById('modal-add-playlist').style.display = 'flex';
+        });
+
+        function closeModal() {
+            document.getElementById('modal-add-playlist').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal-add-playlist')) {
+                document.getElementById('modal-add-playlist').style.display = 'none';
+            }
+        }
